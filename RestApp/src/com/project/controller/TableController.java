@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.project.dao.TableDAO;
+import com.project.exception.AppException;
 import com.project.model.Table;
 
 @Path("/tables")
@@ -28,7 +29,7 @@ public class TableController {
 		try {
 			TableDAO dao = new TableDAO();
 			tables = dao.listTables();
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -43,7 +44,7 @@ public class TableController {
 		try {
 			TableDAO dao = new TableDAO();
 			table = dao.findTable(id);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -57,7 +58,7 @@ public class TableController {
 		try {
 			TableDAO dao = new TableDAO();
 			dao.create(table);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -72,7 +73,7 @@ public class TableController {
 		try {
 			TableDAO dao = new TableDAO();
 			dao.update(id, table);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -87,7 +88,7 @@ public class TableController {
 		try {
 			TableDAO dao = new TableDAO();
 			dao.delete(id);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -103,7 +104,7 @@ public class TableController {
 		try {
 			TableDAO dao = new TableDAO();
 			tables = dao.getAvailableTables(size);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}

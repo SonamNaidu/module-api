@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.project.exception.AppException;
 import com.project.model.Table;
 import com.project.util.HibernateUtil;
 
@@ -14,7 +15,7 @@ public class TableDAO {
 
 	/* Method to  READ all the tables */
 	@SuppressWarnings("unchecked")
-	public List<Table> listTables(){
+	public List<Table> listTables() throws AppException{
 		Transaction tx = null;
 		List<Table> table = null;		
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -31,7 +32,7 @@ public class TableDAO {
 	}
  
 	/* Method to  READ a table based on id */	
-	public Table findTable(String id){
+	public Table findTable(String id) throws AppException{
 		Transaction tx = null;
 		Table table = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -49,7 +50,7 @@ public class TableDAO {
 	}
 
 	/* Method to  CREATES a table */	
-	public void create(Table table) {
+	public void create(Table table)  throws AppException{
 		Transaction txn = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -70,7 +71,7 @@ public class TableDAO {
 	}
 
 	/* Method to  UPDATES a table */	
-	public void update(int id, Table tbl) {
+	public void update(int id, Table tbl)  throws AppException{
 		Transaction txn = null;
 		Table table;
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -91,7 +92,7 @@ public class TableDAO {
 	}
 
 	/* Method to  DELETES a table */	
-	public void delete(int id) {
+	public void delete(int id)  throws AppException{
 		Transaction txn = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -113,7 +114,7 @@ public class TableDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Table> getAvailableTables(int size) {
+	public List<Table> getAvailableTables(int size)  throws AppException {
 		List<Table> availabletables = null;
         Transaction txn = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

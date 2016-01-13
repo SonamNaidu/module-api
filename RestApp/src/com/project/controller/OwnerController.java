@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 
 import com.project.dao.OwnerDAO;
+import com.project.exception.AppException;
 import com.project.model.OwnerDetails;
 
 @Path("/owner")
@@ -22,7 +23,7 @@ public class OwnerController {
 		try {
 			OwnerDAO dao = new OwnerDAO();
 			owner = dao.findOwner(id);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}

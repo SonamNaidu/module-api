@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 
 import com.project.dao.SettingsDAO;
+import com.project.exception.AppException;
 import com.project.model.Settings;
 
 @Path("/setting")
@@ -20,7 +21,7 @@ public class SettingsController {
 		try {
 			SettingsDAO dao = new SettingsDAO();
 			settings = dao.getAll();
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}

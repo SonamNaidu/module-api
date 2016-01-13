@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.project.exception.AppException;
 import com.project.model.Reservation;
 import com.project.model.Settings;
 import com.project.util.HibernateUtil;
@@ -14,7 +15,7 @@ public class ReservationDAO {
 
 	/* Method to  READ all the reservations */
 	@SuppressWarnings("unchecked")
-	public List<Reservation> listReservations(){
+	public List<Reservation> listReservations() throws AppException{
 		Transaction tx = null;
 		List<Reservation> reservation = null;		
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -31,7 +32,7 @@ public class ReservationDAO {
 	}
  
 	/* Method to  READ a reservation based on id */	
-	public Reservation findReservation(String id){
+	public Reservation findReservation(String id)  throws AppException{
 		Transaction tx = null;
 		Reservation reservation = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();		
@@ -49,7 +50,7 @@ public class ReservationDAO {
 	}
 
 	/* Method to  CREATES a reservation */	
-	public void create(Reservation resv) {
+	public void create(Reservation resv)  throws AppException{
 		Transaction txn = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -69,7 +70,7 @@ public class ReservationDAO {
 	}
 
 	/* Method to  UPDATES a reservation */	
-	public void update(int id, Reservation resv) {
+	public void update(int id, Reservation resv)  throws AppException{
 		Transaction txn = null;
 		Reservation reservation;
 		TableDAO table = new TableDAO();
@@ -102,7 +103,7 @@ public class ReservationDAO {
 	}
 
 	/* Method to  DELETES a reservation */	
-	public void delete(int id) {
+	public void delete(int id)  throws AppException{
 		Transaction txn = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 

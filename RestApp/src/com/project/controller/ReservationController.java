@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.project.dao.ReservationDAO;
+import com.project.exception.AppException;
 import com.project.model.Reservation;
 
 @Path("/reservations")
@@ -28,7 +29,7 @@ public class ReservationController {
 		try {
 			ReservationDAO dao = new ReservationDAO();
 			reservations = dao.listReservations();
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -43,7 +44,7 @@ public class ReservationController {
 		try {
 			ReservationDAO dao = new ReservationDAO();
 			reservation = dao.findReservation(id);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -57,7 +58,7 @@ public class ReservationController {
 		try {
 			ReservationDAO dao = new ReservationDAO();
 			dao.create(resv);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -73,7 +74,7 @@ public class ReservationController {
 		try {
 			ReservationDAO dao = new ReservationDAO();
 			dao.update(id, resv);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
@@ -88,7 +89,7 @@ public class ReservationController {
 		try {
 			ReservationDAO dao = new ReservationDAO();
 			dao.delete(id);
-		} catch (Exception e) {
+		} catch (AppException e) {
 			e.printStackTrace();
 			throw new WebApplicationException(Status.INTERNAL_SERVER_ERROR);
 		}
