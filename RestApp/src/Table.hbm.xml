@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.project.model.Table" table="TABLE_DETAILS">
+      <id name="tableNo" type="int" column="table_no">
+            <generator class="increment" />
+        </id>
+      <property name="tableSize" column="table_size" type="int"/>
+      <property name="tableStatus" column="table_status" type="int"/>
+   </class>
+</hibernate-mapping>

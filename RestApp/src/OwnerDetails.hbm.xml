@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.project.model.OwnerDetails" table="OWNER_DETAILS">
+      <id name="ownerEmailId" type="string" column="owner_emailid">
+        </id>
+      <property name="ownerPassword" column="owner_password" type="string"/>
+      <property name="ownerFirstname" column="owner_firstname" type="string"/>
+      <property name="ownerLastname" column="owner_lastname" type="string"/>
+   </class>
+</hibernate-mapping>

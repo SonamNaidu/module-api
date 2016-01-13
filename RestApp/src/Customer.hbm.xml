@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.project.model.Customer" table="CUSTOMER_DETAILS">
+      <id name="customerEmailId" column="customer_emailid" type="string"/>      
+      <property name="customerName" column="customer_name" type="string"/>
+      <property name="customerPhone" column="customer_phone" type="string"/>
+   </class>
+</hibernate-mapping>

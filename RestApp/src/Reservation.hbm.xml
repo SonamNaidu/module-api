@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.project.model.Reservation" table="RESERVATION_DETAILS">
+      <id name="confirmationNo" type="int" column="confirmation_No">
+            <generator class="increment" />
+        </id>
+      <property name="tableNo" column="table_no" type="int"/>
+      <property name="customerEmailId" column="customer_emailId" type="string"/>
+      <property name="reservationDate" column="reservation_date" type="date"/>
+      <property name="reservationTime" column="reservation_time" type="time"/>
+      <property name="partySize" column="party_size" type="int"/>
+   </class>
+</hibernate-mapping>
